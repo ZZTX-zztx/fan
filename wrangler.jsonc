@@ -1,0 +1,21 @@
+{
+	"name": "starbrowser-feedback",
+	"main": "worker.js",
+	"compatibility_date": "2024-01-01",
+	
+	// 路由配置 - 使用自定义域名
+	"routes": [
+		{
+			"pattern": "fan.zztxer.dpdns.org/feedback",
+			"zone_name": "zztxer.dpdns.org"
+		}
+	],
+	
+	// KV Namespace 绑定
+	"kv_namespaces": [
+		{
+			"binding": "FEEDBACK_KV",
+			"id": "YOUR_KV_NAMESPACE_ID"
+		}
+	]
+}
