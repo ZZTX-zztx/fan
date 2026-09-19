@@ -39,6 +39,17 @@ export default {
         // 生成唯一ID（时间戳+随机数）
         const id = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         
+        // 检查KV是否可用
+        if (!env.FEEDBACK_KV) {
+          return new Response(JSON.stringify({ 
+            error: 'KV namespace not configured',
+            hint: 'Please bind FEEDBACK_KV in wrangler.jsonc'
+          }), {
+            status: 500,
+            headers: { 'Content-Type': 'application/json' }
+          });
+        }
+        
         // 存储到KV
         await env.FEEDBACK_KV.put(id, JSON.stringify({
           id: id,
@@ -58,7 +69,8 @@ export default {
       } catch (error) {
         return new Response(JSON.stringify({ 
           success: false, 
-          error: error.message 
+          error: error.message,
+          stack: error.stack
         }), {
           status: 500,
           headers: { 'Content-Type': 'application/json' }
