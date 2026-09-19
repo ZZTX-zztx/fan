@@ -40,10 +40,10 @@ export default {
         const id = `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
         
         // 检查KV是否可用
-        if (!env.FEEDBACK_KV) {
+        if (!env.FAN) {
           return new Response(JSON.stringify({ 
             error: 'KV namespace not configured',
-            hint: 'Please bind FEEDBACK_KV in wrangler.jsonc'
+            hint: 'Please bind FAN in wrangler.jsonc'
           }), {
             status: 500,
             headers: { 'Content-Type': 'application/json' }
@@ -51,7 +51,7 @@ export default {
         }
         
         // 存储到KV
-        await env.FEEDBACK_KV.put(id, JSON.stringify({
+        await env.FAN.put(id, JSON.stringify({
           id: id,
           content: data.content,
           email: data.email || '',
