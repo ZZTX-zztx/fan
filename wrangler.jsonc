@@ -14,8 +14,8 @@
 	// KV Namespace 绑定
 	"kv_namespaces": [
 		{
-			"binding": "FEEDBACK_KV",
-			"id": "YOUR_KV_NAMESPACE_ID"
+			"binding": "FAN",
+			"id": "dd7e2c08faa440afa778d3414bffce4a"
 		}
 	]
 }
