@@ -6,12 +6,18 @@
 	// 路由配置 - 使用自定义域名
 	"routes": [
 		{
-			"pattern": "fan.zztxer.dpdns.org/feedback",
+			"pattern": "fan.zztxer.dpdns.org/*",
 			"zone_name": "zztxer.dpdns.org"
 		}
 	],
+
+	"vars": {
+		"WIN_VERSION_CODE": "1",
+		"WIN_VERSION_NAME": "1.0.0",
+		"WIN_DOWNLOAD_URL": "https://starbrowser.zztxer.dpdns.org",
+		"WIN_CHANGELOG": "1. 【创建】初始版本，支持基础功能"
+	},
 	
-	// KV Namespace 绑定
 	"kv_namespaces": [
 		{
 			"binding": "FAN",
